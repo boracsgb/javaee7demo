@@ -17,6 +17,8 @@ import javax.persistence.Id;
 import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
 import javax.persistence.OneToMany;
+import javax.persistence.PrePersist;
+import javax.persistence.PreUpdate;
 import javax.persistence.Table;
 import javax.validation.constraints.Size;
 import javax.xml.bind.annotation.XmlRootElement;
@@ -51,6 +53,22 @@ public class Kisi implements Serializable {
     private List<Telefon> telefonList;
 
     public Kisi() {
+    }
+    
+    @PrePersist
+    public void prePersistMethod()
+    {
+        for (Telefon telefon : telefonList) {
+            telefon.setKisi(this);
+        }
+    }
+    
+    @PreUpdate
+    public void preUpdateMethod()
+    {
+        for (Telefon telefon : telefonList) {
+            telefon.setKisi(this);
+        }
     }
 
     public Kisi(Integer no) {
