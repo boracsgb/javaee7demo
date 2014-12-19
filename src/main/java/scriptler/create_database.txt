@@ -1,0 +1,17 @@
+CREATE TABLE kisi (
+  no int(11) NOT NULL AUTO_INCREMENT,
+  ad varchar(15) DEFAULT NULL,
+  soyad varchar(15) DEFAULT NULL,
+  PRIMARY KEY (no)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+
+
+CREATE TABLE `telefon` (
+  `no` int(11) NOT NULL AUTO_INCREMENT,
+  `telno` varchar(30) NOT NULL,
+  `kisi_no` int(11) NOT NULL,
+  PRIMARY KEY (`no`),
+  KEY `FK_TLF_KISINO_KISI_NO` (`kisi_no`),
+  CONSTRAINT `FK_TLF_KISINO_KISI_NO` FOREIGN KEY (`kisi_no`) REFERENCES `kisi` (`no`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
