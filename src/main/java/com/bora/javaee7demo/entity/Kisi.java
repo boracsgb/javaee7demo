@@ -47,7 +47,7 @@ public class Kisi implements Serializable {
     @Size(max = 15)
     @Column(length = 15)
     private String soyad;
-    @OneToMany(cascade = CascadeType.ALL, mappedBy = "kisiNo")
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "kisi")
     private List<Telefon> telefonList;
 
     public Kisi() {
