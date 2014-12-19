@@ -46,7 +46,7 @@ public class Telefon implements Serializable {
     private String telno;
     @JoinColumn(name = "kisi_no", referencedColumnName = "no", nullable = false)
     @ManyToOne(optional = false)
-    private Kisi kisiNo;
+    private Kisi kisi;
 
     public Telefon() {
     }
@@ -76,13 +76,15 @@ public class Telefon implements Serializable {
         this.telno = telno;
     }
 
-    public Kisi getKisiNo() {
-        return kisiNo;
+    public Kisi getKisi() {
+        return kisi;
     }
 
-    public void setKisiNo(Kisi kisiNo) {
-        this.kisiNo = kisiNo;
+    public void setKisi(Kisi kisi) {
+        this.kisi = kisi;
     }
+
+  
 
     @Override
     public int hashCode() {
